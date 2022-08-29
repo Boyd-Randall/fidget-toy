@@ -1,0 +1,61 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="CxhUBnE[7R|=B)Jfrdd}">strip</variable></variables><block type="pxt-on-start" id="EBB*5ajPv%iDI6cQOr|C" x="1" y="-39"><statement name="HANDLER"><block type="variables_set" id="JLk+Mni@xX3unQ)[o0GU"><field name="VAR" id="CxhUBnE[7R|=B)Jfrdd}">strip</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="neopixel_create" id="7AXT4X;2mz_WGCZBVFYo"><field name="pin">DigitalPin.P0</field><field name="mode">NeoPixelMode.RGB</field><value name="numleds"><shadow type="math_number" id="**~f4@At3k9|Nxu{C4/^"><field name="NUM">24</field></shadow></value></block></value><next><block type="neopixel_set_brightness" id="nW$c20PG@Y9Y%3|kw_sL"><value name="strip"><block type="variables_get" id="=D0Ri`vno=f!xBS+m[tG"><field name="VAR" id="CxhUBnE[7R|=B)Jfrdd}">strip</field></block></value><value name="brightness"><shadow type="math_number" id="]!Efs^_wA96l`BxP2%8k"><field name="NUM">150</field></shadow></value></block></next></block></statement></block><block type="device_button_event" id="ixgQavO-z~unAP0qC^Yh" x="-1" y="192"><field name="NAME">Button.A</field><statement name="HANDLER"><block type="device_show_leds" id="XYhoE*@:IX+q#$n(tk%3"><field name="LEDS">`
+        . . . . . 
+        . . . . . 
+        # # # . . 
+        # . # . . 
+        # # # . .
+        `</field><next><block type="device_show_leds" id="~f$r5sYNC-!{pFz`Ud?n"><field name="LEDS">`
+        . . . . . 
+        . # # # . 
+        . # . # . 
+        . # # # . 
+        . . . . .
+        `</field><next><block type="device_show_leds" id="4g@/#.JR/TCNE,681EXZ"><field name="LEDS">`
+        # # # . . 
+        # . # . . 
+        # # # . . 
+        . . . . . 
+        . . . . .
+        `</field><next><block type="device_show_leds" id="-^nFby|awX%/jMqaP[;!"><field name="LEDS">`
+        . # . . . 
+        # . # . . 
+        . # . . . 
+        . . . . . 
+        . . . . .
+        `</field><next><block type="device_show_leds" id="pT=|::UjKYNT|uFDprgO"><field name="LEDS">`
+        # . # . . 
+        . . . . . 
+        # . # . . 
+        . . . . . 
+        . . . . .
+        `</field><next><block type="device_clear_display" id="PJKz*I,Gsh5YsrL5_z3i"></block></next></block></next></block></next></block></next></block></next></block></statement></block><block type="neopixel_show" id=";SnuN`.{i;9P7ymIhU%M" disabled="true" x="371" y="183"><value name="strip"><block type="variables_get" id=")Mosq3bpM0AcIX8Pqd.2" disabled="true"><field name="VAR" id="CxhUBnE[7R|=B)Jfrdd}">strip</field></block></value></block><block type="device_button_event" id="tsKr5zzERw{4vA+K94bO" x="340" y="245"><field name="NAME">Button.B</field><statement name="HANDLER"><block type="device_show_leds" id=".Yo|{EnXSiBod3VFc;$Y"><field name="LEDS">`
+        . . . . . 
+        . . . . . 
+        . . # # # 
+        . . # . # 
+        . . # # #
+        `</field><next><block type="device_show_leds" id=",YK=-Lm|Gn7)e!97A/4/"><field name="LEDS">`
+        . . . . . 
+        . # # # . 
+        . # . # . 
+        . # # # . 
+        . . . . .
+        `</field><next><block type="device_show_leds" id="W{K}V:!o8p8L*FMa]Jqb"><field name="LEDS">`
+        # # # . . 
+        # . # . . 
+        # # # . . 
+        . . . . . 
+        . . . . .
+        `</field><next><block type="device_show_leds" id="iD{X5vT0KSiX9gfCe;`T"><field name="LEDS">`
+        . # . . . 
+        # . # . . 
+        . # . . . 
+        . . . . . 
+        . . . . .
+        `</field><next><block type="device_show_leds" id="a2@RQ6XzQrUeWu|RmTc#"><field name="LEDS">`
+        # . # . . 
+        . . . . . 
+        # . # . . 
+        . . . . . 
+        . . . . .
+        `</field><next><block type="device_clear_display" id="h0LP:oI3r!Gy@7ZGBHeG"></block></next></block></next></block></next></block></next></block></next></block></statement></block><block type="input_logo_event" id="QL~3R-)^92Fspo}.2/(1" x="699" y="311"><field name="action">TouchButtonEvent.Pressed</field><statement name="HANDLER"><block type="neopixel_set_pixel_color" id="X/=ryGlTzDZi--;S(9P$"><value name="strip"><block type="variables_get" id="z1M1aU^8`XPA7^{ih8~+"><field name="VAR" id="CxhUBnE[7R|=B)Jfrdd}">strip</field></block></value><value name="pixeloffset"><shadow type="math_number" id="[/+K^.xT6G/e-=N6m/5@"><field name="NUM">1</field></shadow></value><value name="rgb"><shadow type="neopixel_colors" id="AG1%q;8{D[hZZ;fBX|dc"><field name="color">NeoPixelColors.Red</field></shadow></value></block></statement></block><block type="every_interval" id="~bN+hr9$LZcLZR~l(_-z" x="701" y="452"><value name="interval"><shadow type="longTimePicker" id="Z3IJATeyO2FSlC6}}$,q"><field name="ms">250</field></shadow></value><statement name="HANDLER"><block type="neopixel_shift" id="8=ULt6;jKS`Viqd6$E!Y"><value name="strip"><block type="variables_get" id="4lNvS:_t#ZW+PSQ=Le~8"><field name="VAR" id="CxhUBnE[7R|=B)Jfrdd}">strip</field></block></value><value name="offset"><shadow type="math_number" id="`H0Rhk*8yl`RdKEYGIuT"><field name="NUM">1</field></shadow></value><next><block type="neopixel_show" id=";BpLwR#.)d!FJc]Uj2|Y"><value name="strip"><block type="variables_get" id="S2-Wnd5AXTB5EL95_ZrR"><field name="VAR" id="CxhUBnE[7R|=B)Jfrdd}">strip</field></block></value></block></next></block></statement></block></xml>
