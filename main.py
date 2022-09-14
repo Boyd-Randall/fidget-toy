@@ -1,105 +1,26 @@
-def on_button_pressed_a():
-    basic.show_leds("""
-        . . . . .
-                . . . . .
-                # # # . .
-                # . # . .
-                # # # . .
-    """)
-    basic.show_leds("""
-        . . . . .
-                . # # # .
-                . # . # .
-                . # # # .
-                . . . . .
-    """)
-    basic.show_leds("""
-        # # # . .
-                # . # . .
-                # # # . .
-                . . . . .
-                . . . . .
-    """)
-    basic.show_leds("""
-        . # . . .
-                # . # . .
-                . # . . .
-                . . . . .
-                . . . . .
-    """)
-    basic.show_leds("""
-        # . # . .
-                . . . . .
-                # . # . .
-                . . . . .
-                . . . . .
-    """)
-    basic.clear_screen()
-input.on_button_pressed(Button.A, on_button_pressed_a)
-
-def on_button_pressed_b():
-    for index in range(2):
-        basic.show_leds("""
-            . . . . .
-                        . . . . .
-                        . . . . #
-                        . . . . .
-                        . . . . .
-        """)
-        basic.show_leds("""
-            . . . . .
-                        . . . . .
-                        . . . # #
-                        . . . . .
-                        . . . . .
-        """)
-        basic.show_leds("""
-            . . . . .
-                        . . # . .
-                        . . . # #
-                        . . . . .
-                        . . . . .
-        """)
-        basic.show_leds("""
-            . . # . .
-                        . . # . .
-                        . . . # #
-                        . . . . .
-                        . . . . .
-        """)
-        basic.show_leds("""
-            . . # . .
-                        . . # . .
-                        . . . # .
-                        . . . . .
-                        . . . . .
-        """)
-        basic.show_leds("""
-            . . # . .
-                        . . # . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-        """)
-        basic.show_leds("""
-            . . # . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-        """)
-        basic.show_leds("""
-            . . . . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-                        . . . . .
-        """)
-        basic.clear_screen()
-    basic.clear_screen()
-input.on_button_pressed(Button.B, on_button_pressed_b)
-
-def on_gesture_shake():
+def Bpress():
+    global Playing_B
+    if not (Playing_A):
+        Playing_B = True
+        while Playing_B:
+            for index in range(2):
+                basic.show_leds("""
+                    . . . . .
+                                        . . # . .
+                                        . # # # #
+                                        . . # . .
+                                        . . . . .
+                """)
+                basic.show_leds("""
+                    . . . . .
+                                        . # . . .
+                                        # . # # #
+                                        . # . . .
+                                        . . . . .
+                """)
+            basic.clear_screen()
+            Playing_B = False
+def earthquake():
     global earthquaking
     earthquaking = True
     strip.clear()
@@ -125,8 +46,30 @@ def on_gesture_shake():
     strip.clear()
     strip.show()
     earthquaking = False
-input.on_gesture(Gesture.SHAKE, on_gesture_shake)
-
+def Apress():
+    global Playing_A
+    if not (Playing_B):
+        Playing_A = True
+        while Playing_A:
+            for index3 in range(2):
+                basic.show_leds("""
+                    . . . . .
+                                        . . # . .
+                                        # # # # .
+                                        . . # . .
+                                        . . . . .
+                """)
+                basic.show_leds("""
+                    . . . . .
+                                        . . . # .
+                                        # # # . #
+                                        . . . # .
+                                        . . . . .
+                """)
+            basic.clear_screen()
+            Playing_A = False
+Playing_B = False
+Playing_A = False
 list2: List[number] = []
 strip: neopixel.Strip = None
 earthquaking = False
@@ -134,13 +77,73 @@ music.set_volume(255)
 earthquaking = False
 strip = neopixel.create(DigitalPin.P0, 15, NeoPixelMode.RGB)
 list2 = [0, 2, 4, 6, 8, 10, 12, 14]
-flipper = True
+Playing_A = False
+Playing_B = False
+Flowfunctioning = False
 strip.set_brightness(150)
 
+def on_forever():
+    basic.pause(275)
+basic.forever(on_forever)
+
 def on_every_interval():
+    global Flowfunctioning
     if not (earthquaking):
-        if input.button_is_pressed(Button.AB):
+        while input.button_is_pressed(Button.AB):
+            Flowfunctioning = True
             strip.set_pixel_color(1, neopixel.colors(NeoPixelColors.RED))
+            basic.clear_screen()
+            led.stop_animation()
+            basic.show_leds("""
+                    . . . . .
+                    . . . . .
+                    # # # # #
+                    . . . . .
+                    . . . . .
+                """,
+                63)
+            basic.show_leds("""
+                    . . . . .
+                    . . # . .
+                    # # # # #
+                    . . . . .
+                    . . . . .
+                """,
+                63)
+            basic.show_leds("""
+                            . . # . .
+                            . . # . .
+                            # # # # #
+                            . . . . .
+                            . . . . .
+                                """,
+                                63)
+            basic.show_leds("""
+                            . . # . .
+                            . . . . .
+                            # # # # #
+                            . . . . .
+                            . . . . .
+                                """,
+                                                                63)
+            
+            strip.shift(1)
+            strip.show()
+        Flowfunctioning = False
+        basic.clear_screen()
+    if input.button_is_pressed(Button.B):
+        led.stop_animation()
+        Bpress()
+    elif input.button_is_pressed(Button.A):
+        led.stop_animation()
+        Apress()
+    elif input.is_gesture(Gesture.SHAKE):
+        led.stop_animation()
+        earthquake()
+loops.every_interval(250, on_every_interval)
+
+def on_every_interval2():
+    if not (Flowfunctioning):
         strip.shift(1)
         strip.show()
-loops.every_interval(250, on_every_interval)
+loops.every_interval(250, on_every_interval2)
